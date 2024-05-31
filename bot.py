@@ -9,6 +9,7 @@ intents.message_content = True
 
 bot = commands.Bot(command_prefix='$', intents=discord.Intents.default())
 
+help_message = ['hello', 'help', 'nature']
 with open("token.txt", "r") as file:
     TOKEN = file.readline()
 
@@ -19,6 +20,10 @@ async def on_ready():
 @bot.command()
 async def hello(ctx):
     await ctx.send(f'Привет! Я бот {bot.user}!')
+
+@bot.command()
+async def help_me(ctx):
+    await ctx.send(f'Привет! Вот что я умею: {help_message}!')
 
 @bot.command()
 async def nature(ctx):
